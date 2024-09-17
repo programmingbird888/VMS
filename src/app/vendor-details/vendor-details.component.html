@@ -1,0 +1,36 @@
+<div class="container mt-4">
+    <h2>Vendor Details</h2>
+    <form [formGroup]="vendorForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="VendorId" class="form-label">Vendor Id</label>
+        <input id="VendorCode" formControlName="vendorId" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="VendorCode" class="form-label">Vendor Code</label>
+        <input id="VendorCode" formControlName="vendorCode" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="VendorLongName" class="form-label">Vendor Name</label>
+        <input id="VendorLongName" formControlName="vendorLongName" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="VendorPhoneNumber" class="form-label">Phone Number</label>
+        <input id="VendorPhoneNumber" formControlName="vendorPhoneNumber" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="VendorEmail" class="form-label">Email</label>
+        <input id="VendorEmail" formControlName="vendorEmail" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="VendorCreatedOn" class="form-label">Created On</label>
+        <input id="VendorCreatedOn" formControlName="vendorCreatedOn" type="date" class="form-control" />
+      </div>
+      <div class="mb-3 form-check">
+        <input id="IsActive" formControlName="isActive" type="checkbox" class="form-check-input" />
+        <label for="IsActive" class="form-check-label">Active</label>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="onSubmit()">Save</button>
+      <button type="button" class="btn btn-danger" (click)="onDelete()">Delete</button>
+    </form>
+  </div>
+  

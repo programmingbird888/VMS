@@ -1,0 +1,33 @@
+<div class="container mt-4">
+    <h2>Invoice Summary</h2>
+    <button class="btn btn-primary mb-3" (click)="exportToExcel()">Export to Excel</button>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Invoice Id</th>
+          <th>Invoice Number</th>
+          <th>Vendor</th>
+          <th>Amount</th>
+          <th>Currency</th>
+          <th>Received Date</th>
+          <th>Due Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let invoice of invoices">
+          <td>{{ invoice.invoiceId}}</td>
+          <td>{{ invoice.invoiceNumber }}</td>
+          <td>{{ getVendorName(invoice.vendorId) }}</td>
+          <td>{{ invoice.invoiceAmount | currency:getCurrencyCode(invoice.invoiceCurrencyId) }}</td>
+          <td>{{ getCurrencyName(invoice.invoiceCurrencyId) }}</td>
+          <td>{{ invoice.invoiceReceivedDate | date }}</td>
+          <td>{{ invoice.invoiceDueDate | date }}</td>
+          <td>
+            <a class="btn btn-info btn-sm" [routerLink]="['/invoices', invoice.invoiceId]">Edit</a>
+            <button class="btn btn-danger btn-sm" (click)="deleteInvoice(invoice.invoiceId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

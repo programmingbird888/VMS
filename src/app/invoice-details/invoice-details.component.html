@@ -1,0 +1,36 @@
+<div class="container mt-4">
+    <h2>Invoice Details</h2>
+    <form [formGroup]="invoiceForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="InvoiceNumber" class="form-label">Invoice Number</label>
+        <input id="InvoiceNumber" formControlName="InvoiceNumber" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="VendorId" class="form-label">Vendor</label>
+        <select id="VendorId" formControlName="VendorId" class="form-select">
+          <option *ngFor="let vendor of vendors" [value]="vendor.vendorId">{{ vendor.vendorLongName }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="InvoiceAmount" class="form-label">Amount</label>
+        <input id="InvoiceAmount" formControlName="InvoiceAmount" class="form-control" type="number" />
+      </div>
+      <div class="mb-3">
+        <label for="InvoiceCurrencyId" class="form-label">Currency</label>
+        <select id="InvoiceCurrencyId" formControlName="InvoiceCurrencyId" class="form-select">
+          <option *ngFor="let currency of currencies" [value]="currency.currencyId">{{ currency.currencyName }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="InvoiceReceivedDate" class="form-label">Received Date</label>
+        <input id="InvoiceReceivedDate" formControlName="InvoiceReceivedDate" type="date" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="InvoiceDueDate" class="form-label">Due Date</label>
+        <input id="InvoiceDueDate" formControlName="InvoiceDueDate" type="date" class="form-control" />
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+      <button type="button" class="btn btn-danger" (click)="onDelete()">Delete</button>
+    </form>
+  </div>
+  

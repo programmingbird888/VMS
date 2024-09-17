@@ -1,0 +1,34 @@
+<div class="container mt-4">
+    <h2>Vendor Summary</h2>
+    <button class="btn btn-primary mb-3" (click)="exportToExcel()">Export to Excel</button>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Vendor Id</th>
+          <th>Vendor Code</th>
+          <th>Vendor Name</th>
+          <th>Phone Number</th>
+          <th>Email</th>
+          <th>Created On</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let v of vendors" class="table-borderless">
+          <td>{{ v.vendorId }}</td>
+          <td>{{ v.vendorCode}}</td>
+          <td>{{ v.vendorLongName }}</td>
+          <td>{{ v.vendorPhoneNumber }}</td>
+          <td>{{ v.vendorEmail}}</td>
+          <td>{{ v.vendorCreatedOn | date }}</td>
+          <td>{{ v.isActive }}</td>
+          <td>
+            <a class="btn btn-info btn-sm" [routerLink]="['/vendors', v.vendorCode]">Edit</a>
+            <button class="btn btn-danger btn-sm" (click)="deleteVendor(v.vendorCode)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
